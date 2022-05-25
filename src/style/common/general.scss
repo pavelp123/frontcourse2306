@@ -1,0 +1,79 @@
+*,
+::before,
+::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: $base-font-size;
+}
+
+body {
+	font-family: $base-font-family;
+}
+
+ul {
+	list-style: none;
+}
+
+img {
+	max-width: 100%;
+}
+
+button {
+	padding: $padding-xs $padding-md;
+	background-color: inherit;
+	border: 1px solid $black;
+	border-radius: $radius-xs;
+	cursor: pointer;
+}
+
+a {
+	text-decoration: none;
+	color: $color-link;
+
+	&:hover {
+		color: $color-link-hover;
+	}
+
+	&:active {
+		color: $color-link-active;
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-block-start: 0;
+	margin-block-end: 0;
+	line-height: 100%;
+}
+
+h1 {
+	font-size: 6rem;
+}
+
+h2 {
+	font-size: 5rem;
+}
+
+h3 {
+	font-size: 4rem;
+}
+
+h4 {
+	font-size: 3rem;
+}
+
+h5 {
+	font-size: 2rem;
+}
+
+h6 {
+	font-size: 1rem;
+}

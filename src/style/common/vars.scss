@@ -1,0 +1,41 @@
+// FONTS
+$base-font-family: Arial, sans-serif;
+$base-font-size: 16px;
+
+// COLORS
+$white: #fff;
+$black: #000;
+$color-link: rgba(0, 0, 255, 1);
+$color-link-hover: rgba(0, 0, 255, 0.75);
+$color-link-active: rgba(0, 0, 255, 0.5);
+
+// SPACING
+$space: 8px;
+
+// PADDING
+$padding-xs: $space * 0.5;
+$padding-sm: $space;
+$padding-md: $space * 2;
+$padding-lg: $space * 3;
+$padding-xl: $space * 4;
+$padding-xxl: $space * 5;
+
+// RADIUS
+$radius-xs: $space * 0.5;
+$radius-sm: $space;
+$radius-md: $space * 2;
+$radius-lg: $space * 3;
+$radius-xl: $space * 4;
+$radius-xxl: $space * 5;
+
+// BREAKPOINTS
+$mobile-bp: 576px;
+$tablet-bp: 768px;
+$notebook-bp: 992px;
+$desktop-bp: 1200px;
+
+// CONTAINER
+$mobile-width: 95%;
+$tablet-width: 740px;
+$notebook-width: 960px;
+$desktop-width: 1140px;
