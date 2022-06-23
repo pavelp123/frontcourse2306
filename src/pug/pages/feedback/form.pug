@@ -1,0 +1,22 @@
+include ../../mixins/form/field.pug
+
+form(action="" method="POST").form.feedback-form.js-feedback-form
+    .form__group
+        +form-field({
+            label: 'Тема',
+            name: 'title',
+            required: 'required',
+            max: 20
+        })
+        +form-field({
+            label: 'Email',
+            name: 'email',
+            required: 'required'
+        })
+    .form__group
+        +form-field({label: 'Имя'})
+        +form-field({label: 'Телефон'})
+    .form__field
+        
+    .feedback-form__btn
+        a.btn._outlined отправить

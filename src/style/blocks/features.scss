@@ -1,0 +1,25 @@
+.features {
+    padding-top: 150px;
+    padding-bottom: $xxl-size;
+    background-image: url('./img/features.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    &__item {
+        padding-left: $xxl-size;
+        margin-bottom: $xxl-size;
+
+        &-title {
+            font-family: $heading-font;
+            font-size: $xl-size;
+            margin-bottom: $m-size;
+            max-width: 602px;
+        }
+
+        &-description {
+            font-size: $sm-size;
+            margin-bottom: $xl-size;
+            max-width: 447px;
+        }
+    }
+}

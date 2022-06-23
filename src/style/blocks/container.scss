@@ -1,16 +1,12 @@
 .container {
-	margin: 0 auto;
-	max-width: $mobile-width;
+    width: $medium-container;
+    margin: 0 auto;
 
-	@include tablet {
-		max-width: $tablet-width;
-	}
+    &._wide {
+        width: $wide-container;
+    }
 
-	@include notebook {
-		max-width: $notebook-width;
-	}
-
-	@include desktop {
-		max-width: $desktop-width;
-	}
+    &._small {
+        width: $small-container;
+    }
 }

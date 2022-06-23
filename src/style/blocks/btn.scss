@@ -1,0 +1,28 @@
+.btn {
+    padding: $s-size $l-size;
+    background: $accent;
+    font-weight: 600;
+    border-radius: $m-size;
+    text-transform: uppercase;
+    transition: all $transition;
+    border: 2px solid transparent;
+
+    &:hover {
+        background: transparent;
+        border: 2px solid $accent;
+    }
+
+    &:active {
+        background: $accent-light;
+        border-color: transparent;
+    }
+
+    &._outlined {
+        background: transparent;
+        border: 2px solid $accent;
+
+        &:hover {
+            background: $accent;
+        }
+    }
+}

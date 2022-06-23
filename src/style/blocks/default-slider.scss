@@ -1,0 +1,42 @@
+.default-slider {
+    &__control {
+        position: absolute;
+        bottom: 0;
+        width: 48px;
+        height: 48px;
+        margin-left: 1px;
+        margin-bottom: 1px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 0 1px rgba($white, .1);
+        border-radius: 50%;
+        z-index: 3;
+        transition: all $transition;
+
+        &:hover {
+            background: $accent;
+            box-shadow: none;
+        }
+
+        &:hover {
+            background: $accent-light;
+            box-shadow: none;
+        }
+    }
+
+    &__prev {
+        left: 0;
+        background: url(sprite.svg#arrowLeft) no-repeat; 
+        background-size: $s-size;
+        background-position: center;
+    }
+
+    &__next {
+        right: 0;
+        background: url(sprite.svg#arrowRight) no-repeat; 
+        background-size: $s-size;
+        background-position: center;
+    }
+}

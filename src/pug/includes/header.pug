@@ -1,3 +1,17 @@
-header.header
-	.container
-		h1 header
+include ../mixins/icon
+
+header.header 
+    .container 
+        .header__container 
+           .header__item 
+                .header__element
+                    a.header__icon(href="#")
+                        +icon('menuIcon')
+                .header__element 
+                    a.header__icon(href="#")
+                        +icon('geolocationIcon')
+                .header__element 
+                    a.header__phone(href="tel:89811201117")
+                        | 8 981 120-11-17
+           .header__item 
+           .header__item  

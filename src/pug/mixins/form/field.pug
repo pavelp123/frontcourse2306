@@ -1,0 +1,9 @@
+mixin form-field(params) 
+    .form__field.js-form-field(data-required= params.required, data-max= params.max)
+        .form__field-label= params.label
+        .form__field-input
+            if block
+                block
+            else
+                input.form__input.js-form-input(name= params.name)
+        .form__field-status.js-form-status

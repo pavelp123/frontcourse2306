@@ -13,7 +13,9 @@ const webp = require('gulp-webp')
 const imagemin = require('gulp-imagemin')
 const htmlWebp = require('gulp-webp-html-nosvg')
 const newer = require('gulp-newer')
+const svgSprite = require('gulp-svg-sprite')
 const browserSync = require('browser-sync').create()
+const rigger = require('gulp-rigger');
 
 const path = {
 	html: {
@@ -31,6 +33,10 @@ const path = {
 	img: {
 		src: 'src/img',
 		dist: 'build/img',
+	},
+	svg: {
+		src: 'src/svg',
+		dist: 'build',
 	},
 	build: 'build',
 	src: 'src',
@@ -55,7 +61,8 @@ function styleGenerator() {
 }
 
 function bandleJsGenerator() {
-	return src(`${path.js.src}/**/*.js`)
+	return src(`${path.js.src}/script.js`)
+		.pipe(rigger())
 		.pipe(concat('bundle.js'))
 		.pipe(uglify())
 		.pipe(dest(path.js.dist))
@@ -69,9 +76,20 @@ function imagesConverter() {
 		.pipe(src(`${path.img.src}/**/*.{jpg,jpeg,png,gif,}`))
 		.pipe(newer(path.img.dist))
 		.pipe(imagemin())
-		.pipe(src(`${path.img.src}/**/*.{svg,webp}`))
-		.pipe(newer(path.img.dist))
 		.pipe(dest(path.img.dist))
+		.pipe(browserSync.stream())
+}
+
+function svgConverter() {
+	return src(`${path.svg.src}/**/*.svg`)
+		.pipe(svgSprite({
+			mode: {
+				stack: {
+					sprite: '../sprite.svg', // sprite file name
+				},
+			},
+		}))
+		.pipe(dest(path.svg.dist))
 		.pipe(browserSync.stream())
 }
 
@@ -96,7 +114,8 @@ function clearImg() {
 function watcher() {
 	watch(`${path.html.src}/**/*.pug`, htmlGenerator)
 	watch(`${path.css.src}/**/*.scss`, styleGenerator)
-	watch(`${path.img.src}/**/*.*`, series(clearImg, imagesConverter))
+	watch(`${path.img.src}/**/*.{jpg,jpeg,png,gif,}`, series(clearImg, imagesConverter))
+	watch(`${path.svg.src}/**/*.svg`, svgConverter)
 	watch(`${path.js.src}/**/*.js`, series(bandleJsGenerator, htmlGenerator, styleGenerator))
 }
 
@@ -106,5 +125,6 @@ exports.default = series(
 	styleGenerator,
 	bandleJsGenerator,
 	imagesConverter,
+	svgConverter,
 	parallel(server, watcher),
 )

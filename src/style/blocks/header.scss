@@ -1,1 +1,37 @@
-.header {}
+.header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    background: rgba(33, 33, 33, 0.8);
+    backdrop-filter: blur($xxxxs-size);
+    height: $xxl-size;
+    display: flex;
+    align-items: center;
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__item {
+        display: flex;
+
+        &-element {
+            & + & {
+                margin-left: $m-size;
+            }
+        }     
+    }
+
+    &__icon {
+        width: $l-size;
+        height: $l-size;
+    }
+
+    &__phone {
+        font-weight: 500;
+        font-size: $sm-size;
+    }
+}
